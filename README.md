@@ -4,9 +4,10 @@
 ## To run the demo:
 1. `pip3 install pipenv`
 2. `pipenv shell`
-3. `pipenv --venv`
+3. `pipenv install django`
 4. `cd teammembers`
-5. `python manage.py runserver`
+5. `python manage.py migrate`
+6. `python manage.py runserver`
 
 ## What it does
 The project is to implement a simple team-member management application that allows the user to view, edit, add, and delete team members. The app consists of 3 pages that are documented below:
