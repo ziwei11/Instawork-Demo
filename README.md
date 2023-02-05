@@ -1,5 +1,8 @@
 # Instawork-Demo
 
+## Time spent on this project
+
+6 hours
 
 ## To run the demo:
 1. `pip3 install pipenv`
