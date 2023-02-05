@@ -1,0 +1,104 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'style-add.css' %}"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/6b20b1c14d.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Add Member</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <a href="{% url 'index' %}">
+          <i class="fas fa-chevron-circle-left back-btn"></i>
+        </a>
+
+        <div class="header-box">
+          <h2 class="header-title">Add a team member<h2/>
+          <h3 class="header-sentence">Set email, location, and role.<h3/>
+        </div>
+		    <hr />
+      </header>
+
+      <form action="" method="POST">
+        {% csrf_token %}
+        <section>
+		      <h1 class="info-title">Info</h1>
+          <div class="info-line">
+            <input
+              type="text"
+              class="type"
+              name="firstname"
+              placeholder="First Name"
+            />
+          </div>
+
+          <div class="info-line">
+            <input
+              type="text"
+              class="type"
+              name="lastname"
+              placeholder="Last Name"
+            />
+          </div>
+
+          <div class="info-line">
+            <input
+              type="text"
+              class="type"
+              name="emailaddress"
+              placeholder="Email Address"
+            />
+          </div>
+
+          <div class="info-line">
+            <input
+              type="text"
+              class="type"
+              name="phonenumber"
+              placeholder="Phone Number"
+            />
+          </div>
+		  <h1 class="role-title">Role</h1>
+		  <div>
+			<div class="label">
+				<input type="radio" name="role" id="Regular" value="R" checked/>
+        <label for="Regular">Regular - Can't delete members</label> 
+			</div>
+			<hr />
+			<div class="label">
+				<input type="radio" name="role" id="Admin" value="A" />
+        <label for="Admin">Admin - Can delete members</label> 
+			</div>
+			<hr />
+		  </div>
+        </section>
+
+        <section class="button-container">
+          <div class="update-contact">
+            <button type=" submit" class="button">Save</button>
+          </div>
+        </section>
+
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href={% static "style.css" %} />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/6b20b1c14d.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Team Members</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <!--  SEARCH FORM -->
+      <header class="header">
+		<div class="add-button">
+			<a href={% url 'add-member' %}><i class="fas fa-plus-circle add"></i></a>
+		</div>
+		<div class="header-box">
+			<h2 class="header-title">Team members<h2/>
+			<h3 class="header-sentence">You have {{ members|length }} team members.<h3/>
+		<div/>
+      </header>
+
+      <!--  CONTACT LIST -->
+      <section class="contacts-library">
+
+        <ul>
+			{% for member in members %}
+			<hr />
+          <a href={% url 'edit-member' member.id %}>
+			<div class="contact-inside">
+				<div class="round_icon">
+					<img src="{% static "image/image.png" %}" alt="image" width="80" height="80">
+				</div>
+				<div class="contact-section">
+					<li class="list__item">
+						{% if "A" == member.role %}
+						<p class="contact-name">{{member.first_name}} {{member.last_name}} (admin)</p>
+						{% else %}
+						<p class="contact-name">{{member.first_name}} {{member.last_name}}</p>
+						{% endif %}
+						<p class="mobile">{{member.phone_number}}</p>
+						<p class="email">{{member.email}}</p>
+					</li>
+				</div>
+		    </div>
+          </a>
+		  {% endfor %}
+        </ul>
+
+		<hr />
+      </section>
+    </div>
+  </body>
+</html>
